@@ -14,9 +14,14 @@ class Router {
 		array_walk($routes, function($route){
 			 if($_SERVER['REQUEST_URI'] == $route['route']){
 			 	$class = "App\\Controller\\" . ucfirst($route['controller']);
-			 	$controller = new $class;
-			 	$method = $route['method'];
-			 	$controller->$method();
+			 	$file = __DIR__ . '/Controller/' . ucfirst($route['controller']) . '.php';
+			 	if(!file_exists($file)){
+			 		echo "The specified controller was not found";
+			 	}else{
+			 		$controller = new $class;
+				 	$method = $route['method'];
+				 	$controller->$method();
+			 	}			 	
 			 }
 		});
 	}
