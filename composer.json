@@ -1,0 +1,16 @@
+{
+    "name": "matheusgodoi/tiny-framework",
+    "description": "A tiny php framework that simplifies the software development",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matheus Godoi",
+            "email": "hi.developmatt@gmail.com",
+            "homepage": "https://developmatt.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {}
+}
