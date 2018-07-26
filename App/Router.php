@@ -10,6 +10,8 @@ class Router {
 
 	public function route(){
 		$routes[] = ['route' => '/', 'controller' => 'indexController', 'method' => 'index'];
+		$routes[] = ['route' => '/complete', 'controller' => 'indexController', 'method' => 'complete'];
+
 
 		array_walk($routes, function($route){
 			 if($_SERVER['REQUEST_URI'] == $route['route']){
