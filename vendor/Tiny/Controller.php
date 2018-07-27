@@ -5,12 +5,11 @@
  * @author Matheus Godoi <hi.developmatt@gmail.com> (developmatt.com)
 */
 
-namespace App;
+namespace Tiny;
 
-use Tiny\View as TinyView;
-
-class View extends TinyView
+class Controller
 {
-
+	protected $view;
 }
+
 ?>

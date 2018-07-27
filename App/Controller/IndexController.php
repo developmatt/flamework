@@ -1,23 +1,21 @@
 <?php
-	namespace App\Controller;
 
-	use App\View;
+namespace App\Controller;
 
-	class IndexController
-	{
+use App\View;
+use Tiny\Controller;
 
-		private $view;
-
-		public function __construct(){
-			$this->view = new View;
-		}
-
-		public function index(){
-			$this->view->compose('content', true)->with(['sample' => 'Sample Value']);
-		}
-
-		public function complete(){
-			$this->view->show('complete');
-		}
+class IndexController extends Controller {
+	public function __construct(){
+		$this->view = new View;
 	}
+
+	public function index(){
+		$this->view->compose('content', true)->with(['sample' => 'Sample Value']);
+	}
+
+	public function complete(){
+		$this->view->show('complete');
+	}
+}
 ?>
