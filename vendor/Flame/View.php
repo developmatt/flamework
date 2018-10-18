@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package tiny-framework
+ * @package flamework
  * @author Matheus Godoi <hi.developmatt@gmail.com> (developmatt.com)
 */
 
-namespace Tiny;
+namespace Flame;
 
 class View
 {

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\View;
-use Tiny\Controller;
+use Flame\Controller;
 
 class IndexController extends Controller {
 	public function __construct(){

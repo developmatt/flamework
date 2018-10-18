@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @package tiny-framework
+ * @package flamework
  * @author Matheus Godoi <hi.developmatt@gmail.com> (developmatt.com)
 */
 
 namespace App;
 
-use Tiny\View as TinyView;
+use Flame\View as FlameView;
 
-class View extends TinyView
+class View extends FlameView
 {
 
 }
