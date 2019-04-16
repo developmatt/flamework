@@ -26,7 +26,6 @@ class View
 	public function with($args){
 		$this->args = $args;
 		$this->buildVariables($args);
-		$this->show();
 	}
 
 	public function show($view = false){
@@ -44,7 +43,7 @@ class View
 
 	public function showTemplate(){
 		include('../App/Views/templates/default.php');
-	} 
+	}
 
 	public function buildVariables($args){
 		foreach ($args as $arg => $value) {
