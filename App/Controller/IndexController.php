@@ -11,7 +11,7 @@ class IndexController extends Controller {
 	}
 
 	public function index(){
-		$this->view->compose('content', true)->with(['sample' => 'Sample Value']);
+		$this->view->compose('content', true)->with(['sample' => 'Sample Value'])->show();
 	}
 
 	public function complete(){

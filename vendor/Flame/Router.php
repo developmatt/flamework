@@ -7,21 +7,50 @@
 
 namespace Flame;
 
+use \Exception;
+use Flame\ErrorMessages;
+
 class Router
 {
 
 	protected $routes;
 
 	public function __construct(){
-		$this->setRoutes();
-		$this->run();
+		// $this->setRoutes();
+		// $this->run();
+	}
+
+	public function __call($name, $args){
+		$uri = $args[0];
+		
+		try{
+			if($_SERVER['REQUEST_URI'] == $args[0]){
+				$arr = explode('@', $args[1]);
+				$class = $arr[0];
+				$method = $arr[1];
+				$class = "App\\Controller\\" . ucfirst($class);
+				if(!class_exists($class)){
+					throw new Exception('500');
+				}
+				$controller = new $class;
+
+				if(!in_array($method, get_class_methods($controller))){
+					throw new Exception('500');
+				}
+				$controller->$method();
+			}
+		}catch(Exception $e){
+			$notFound = new \App\Controller\NotFound;
+			$notFound->index(new ErrorMessages($e->getMessage()));
+			die;
+		}
 	}
 
 	public function run(){
 		$route = array_filter($this->routes, function($r){
 			return $_SERVER['REQUEST_URI'] == $r['route'];
 		});
-
+		$route = array_shift($route);
 		if($route){
 			$class = "App\\Controller\\" . ucfirst($route['controller']);
 			$controller = new $class;

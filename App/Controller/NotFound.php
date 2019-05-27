@@ -10,8 +10,8 @@ class NOtFound extends Controller {
 		$this->view = new View;
 	}
 
-	public function index(){
-		$this->view->compose('404', true)->show();
+	public function index($args){
+		$this->view->compose('error')->with(['message' => $args->status . ' - ' . $args->message])->show();
 	}
 }
 ?>

@@ -16,7 +16,6 @@ class View
 
 	protected $template;
 
-
 	public function compose($view, $template = false){
 		$this->view = $view;
 		$this->template = $template;
@@ -26,6 +25,7 @@ class View
 	public function with($args){
 		$this->args = $args;
 		$this->buildVariables($args);
+		return $this;
 	}
 
 	public function show($view = false){
@@ -35,8 +35,7 @@ class View
 
 		if($this->template){
 			$this->showTemplate();
-		}
-		else{
+		}else{
 			include('../App/Views/' . $this->view . '.php');
 		}
 	}
