@@ -44,6 +44,7 @@ class Router
 				$controller->$method();
 			}
 		}catch(Exception $e){
+			http_response_code($e->getMessage());
 			$notFound = new \App\Controller\NotFound;
 			$notFound->index(new ErrorMessages($e->getMessage()));
 			die;

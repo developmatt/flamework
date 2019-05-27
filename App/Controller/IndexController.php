@@ -23,7 +23,7 @@ class IndexController extends Controller {
 	public function modelProduct(){
 		$product = new Product();
 		http_response_code(200);
-		echo json_encode($product->all());
+		echo json_encode($product->find('1'));
 	}
 }
 ?>

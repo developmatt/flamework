@@ -19,4 +19,18 @@ class Model {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function find($id){
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id = "' . $id . '"';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function findByColumn($column, $value){
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' = "' . $value . '"';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
