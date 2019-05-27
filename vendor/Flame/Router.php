@@ -25,6 +25,10 @@ class Router
 		
 		try{
 			if($_SERVER['REQUEST_URI'] == $args[0]){
+
+				if(!$this->verifyMethodPermission($name)){
+					throw new Exception('405');
+				}
 				$arr = explode('@', $args[1]);
 				$class = $arr[0];
 				$method = $arr[1];
@@ -60,6 +64,10 @@ class Router
 			$notFound = new \App\Controller\NotFound;
 			$notFound->index();
 		}
+	}
+
+	public function verifyMethodPermission($request){
+		return strtolower($_SERVER['REQUEST_METHOD']) == $request;
 	}
 }
 ?>
