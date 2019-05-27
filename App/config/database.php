@@ -1,11 +1,14 @@
 <?php
+
+require('../../env.php');
+
 class Database{
  
     // specify your own database credentials
-    private $host = "";
-    private $db_name = "";
-    private $username = "";
-    private $password = "";
+    private $host = DB_HOST;
+    private $db_name = DB_NAME;
+    private $username = DB_USER;
+    private $password = DB_PASSWORD;
     public $conn;
  
     // get the database connection
