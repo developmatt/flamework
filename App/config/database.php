@@ -1,6 +1,10 @@
 <?php
 
-require('../../env.php');
+namespace App\config;
+
+use \PDO;
+require('../env.php');
+
 
 class Database{
  
@@ -19,8 +23,9 @@ class Database{
         try{
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->exec("set names utf8");
-        }catch(PDOException $exception){
-            echo "Connection error: " . $exception->getMessage();
+        }catch(Exception $exception){
+            echo 'ERROR: ' . $e->getMessage();
+            die;
         }
  
         return $this->conn;

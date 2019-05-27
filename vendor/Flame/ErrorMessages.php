@@ -13,7 +13,8 @@ class ErrorMessages
 	public $message;
 	public $arr = [
 		'404' => 'Not found',
-		'500' => 'Internal server error'
+		'500' => 'Internal server error',
+		'SQLSTATE[HY000] [1049] Unknown database \'database\'' => 'Can\'t connect to MySql'
 	];
 
 	public function __construct($code){

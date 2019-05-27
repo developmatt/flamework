@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\View;
+use App\Model\Product;
+
 use Flame\Controller;
 
 class IndexController extends Controller {
@@ -16,6 +18,12 @@ class IndexController extends Controller {
 
 	public function complete(){
 		$this->view->show('complete');
+	}
+
+	public function modelProduct(){
+		$product = new Product();
+		http_response_code(200);
+		echo json_encode($product->all());
 	}
 }
 ?>
